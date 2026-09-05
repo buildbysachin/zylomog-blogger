@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 25% 98%;
+    --foreground: 224 30% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 30% 8%;
+    --primary: 252 87% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 224 30% 12%;
+    --muted: 220 20% 94%;
+    --muted-foreground: 224 10% 42%;
+    --accent: 168 76% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 252 87% 60%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 224 32% 7%;
+    --foreground: 220 20% 96%;
+    --card: 224 28% 10%;
+    --card-foreground: 220 20% 96%;
+    --primary: 252 91% 68%;
+    --primary-foreground: 224 32% 7%;
+    --secondary: 224 22% 15%;
+    --secondary-foreground: 220 20% 96%;
+    --muted: 224 22% 15%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 168 70% 48%;
+    --accent-foreground: 224 32% 7%;
+    --destructive: 0 63% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 224 20% 18%;
+    --input: 224 20% 18%;
+    --ring: 252 91% 68%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  .container-tight {
+    @apply mx-auto max-w-4xl px-6;
+  }
+}
+
+/* TipTap editor content styling */
+.ProseMirror {
+  min-height: 320px;
+  outline: none;
+}
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none;
+  height: 0;
+}
