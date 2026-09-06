@@ -30,6 +30,9 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
     title: { default: `${siteName} — Tech News & Reviews`, template: `%s | ${siteName}` },
     description,
+    verification: {
+      google: "b464081747701963",
+    },
     openGraph: {
       title: siteName,
       description,
