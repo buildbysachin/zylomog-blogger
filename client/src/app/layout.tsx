@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: `${siteName} — Tech News & Reviews`, template: `%s | ${siteName}` },
     description,
     verification: {
-      google: "b464081747701963",
+      google: "kVWY98Z2T8eSTSnrZqsasHv85HswYMf-VejnJ0nrAY8",
     },
     openGraph: {
       title: siteName,
