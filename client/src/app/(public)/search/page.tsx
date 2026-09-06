@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { SearchBar } from "@/components/blog/SearchBar";
 import { PostCard } from "@/components/blog/PostCard";
@@ -9,7 +9,7 @@ import api from "@/lib/api";
 import { CATEGORIES } from "@/types";
 import type { Post } from "@/types";
 
-export default function SearchPage() {
+function SearchPageContent() {
   const searchParams = useSearchParams();
   const search = searchParams.get("search") || "";
   const [category, setCategory] = useState<string | null>(null);
@@ -64,5 +64,13 @@ export default function SearchPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div className="container py-10 text-center">Loading...</div>}>
+      <SearchPageContent />
+    </Suspense>
   );
 }
